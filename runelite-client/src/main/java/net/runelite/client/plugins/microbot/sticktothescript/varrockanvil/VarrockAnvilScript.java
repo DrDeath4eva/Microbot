@@ -132,7 +132,7 @@ public class VarrockAnvilScript extends Script {
 
                 case BANKING:
                     debug("Banking");
-                    if (Rs2Player.getRunEnergy() < 90) {
+                    if (Rs2Player.getRunEnergy() < 60) {
                         Rs2Bank.withdrawOne("Energy potion");
                     }
                     bank(barType);
