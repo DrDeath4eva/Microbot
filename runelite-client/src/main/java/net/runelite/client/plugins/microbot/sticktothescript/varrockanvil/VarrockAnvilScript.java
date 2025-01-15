@@ -55,7 +55,7 @@ public class VarrockAnvilScript extends Script {
         Rs2AntibanSettings.actionCooldownChance = 0;
         Rs2AntibanSettings.microBreakChance = 0;
         Rs2AntibanSettings.microBreakDurationLow = 0;
-        Rs2AntibanSettings.microBreakDurationHigh = 3;
+        Rs2AntibanSettings.microBreakDurationHigh = 0;
 
         mainScheduledFuture = scheduledExecutorService.scheduleWithFixedDelay(() -> {
             if (!super.run() || !Microbot.isLoggedIn()) {
