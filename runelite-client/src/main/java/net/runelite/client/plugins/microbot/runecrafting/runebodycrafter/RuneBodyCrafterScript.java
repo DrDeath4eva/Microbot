@@ -54,12 +54,32 @@ public class RuneBodyCrafterScript extends Script {
                     {
                         Rs2Bank.withdrawAndEquip(BODY_TIARA);
                     }
-                    while (Rs2Player.getRunEnergy() < 50) {
+                    while (Rs2Player.getRunEnergy() < 20) {
 
                         if (!Rs2Inventory.contains("Energy potion")) {
 
-                            Rs2Bank.withdrawOne("Energy potion");
+                            Rs2Bank.withdrawX("Energy potion",2);
                             sleepUntil(() -> Rs2Inventory.contains(ENERGY_POTION4));
+                        }
+
+                        if (Rs2Inventory.contains(ENERGY_POTION4)) {
+                            Rs2Inventory.interact(ENERGY_POTION4, "Drink");
+                            Rs2Player.waitForAnimation();
+                        }
+
+                        if (Rs2Inventory.contains(ENERGY_POTION3)) {
+                            Rs2Inventory.interact(ENERGY_POTION3, "Drink");
+                            Rs2Player.waitForAnimation();
+                        }
+
+                        if (Rs2Inventory.contains(ENERGY_POTION2)) {
+                            Rs2Inventory.interact(ENERGY_POTION2, "Drink");
+                            Rs2Player.waitForAnimation();
+                        }
+
+                        if (Rs2Inventory.contains(ENERGY_POTION1)) {
+                            Rs2Inventory.interact(ENERGY_POTION1, "Drink");
+                            Rs2Player.waitForAnimation();
                         }
 
                         if (Rs2Inventory.contains(ENERGY_POTION4)) {
