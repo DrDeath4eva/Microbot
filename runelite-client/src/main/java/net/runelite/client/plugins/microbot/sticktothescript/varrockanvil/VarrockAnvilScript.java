@@ -226,7 +226,7 @@ public class VarrockAnvilScript extends Script {
             }
 
             Rs2Bank.withdrawAll(barType.toString());
-            sleepUntil(() -> Rs2Inventory.hasItem(barType.toString()), 3500);
+            sleepUntil(() -> Rs2Inventory.hasItem(barType.toString()), 6000);
 
             // Exit if we did not end up finding it.
             if (!Rs2Inventory.hasItem(barType.toString())) {
