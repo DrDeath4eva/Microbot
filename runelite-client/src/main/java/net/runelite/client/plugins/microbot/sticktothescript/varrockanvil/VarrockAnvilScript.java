@@ -50,7 +50,7 @@ public class VarrockAnvilScript extends Script {
 
         Rs2Antiban.resetAntibanSettings();
         Rs2Antiban.antibanSetupTemplates.applySmithingSetup();
-        Rs2AntibanSettings.dynamicActivity = true;
+        Rs2AntibanSettings.dynamicActivity = false;
         Rs2AntibanSettings.dynamicIntensity = true;
         Rs2AntibanSettings.actionCooldownChance = 0;
         Rs2AntibanSettings.microBreakChance = 0;
