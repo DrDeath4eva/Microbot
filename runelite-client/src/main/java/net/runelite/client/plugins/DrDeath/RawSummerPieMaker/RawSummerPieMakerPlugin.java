@@ -2,9 +2,7 @@ package net.runelite.client.plugins.DrDeath.RawSummerPieMaker;
 
 import com.google.inject.Provides;
 import lombok.extern.slf4j.Slf4j;
-import net.runelite.api.events.GameTick;
 import net.runelite.client.config.ConfigManager;
-import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
 import net.runelite.client.ui.overlay.OverlayManager;
@@ -21,12 +19,11 @@ import java.awt.*;
 @Slf4j
 public class RawSummerPieMakerPlugin extends Plugin {
     @Inject
-    private RawSummerPieMakerConfig RawSummerPieConfig;
+    private RawSummerPieMakerConfig config;
     @Provides
     RawSummerPieMakerConfig provideConfig(ConfigManager configManager) {
         return configManager.getConfig(RawSummerPieMakerConfig.class);
     }
-
     @Inject
     private OverlayManager overlayManager;
     @Inject
@@ -41,25 +38,11 @@ public class RawSummerPieMakerPlugin extends Plugin {
         if (overlayManager != null) {
             overlayManager.add(rawSummerPieMakerOverlay);
         }
-        rawSummerPieMakerScript.run(RawSummerPieConfig);
+        rawSummerPieMakerScript.run(config);
     }
 
     protected void shutDown() {
         rawSummerPieMakerScript.shutdown();
         overlayManager.remove(rawSummerPieMakerOverlay);
     }
-    int ticks = 10;
-    @Subscribe
-    public void onGameTick(GameTick tick)
-    {
-        //System.out.println(getName().chars().mapToObj(i -> (char)(i + 3)).map(String::valueOf).collect(Collectors.joining()));
-
-        if (ticks > 0) {
-            ticks--;
-        } else {
-            ticks = 10;
-        }
-
-    }
-
 }
